@@ -73,7 +73,9 @@
 // </TechnicalDetails>
 
 
-// Tests Factorial().
+//Test class environment definition.
+//During the execution of the tests the SetUp() method is run
+//Garbage collection then cleans up anything set up as we run through tests
 class DefaultVirtualEventTests : public testing::Test{
 	protected:
 	virtual void SetUp() {

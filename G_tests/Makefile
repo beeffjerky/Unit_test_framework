@@ -48,7 +48,8 @@ CXXFLAGS += -g -Wall -Wextra -pthread
 
 # All tests produced by this Makefile.  Remember to add new tests you
 # created to the list.
-TESTS =  VirtualEvent_test
+TESTS =  VirtualEvent_test G_tests
+SUB_TESTS = VirtualEvent_test.o VirtualYear_test.o
 
 # All Google Test headers.  Usually you shouldn't change this
 # definition.
@@ -99,4 +100,15 @@ VirtualEvent_test.o : $(USER_DIR)/VirtualEvent_test.cc \
 
 VirtualEvent_test :  VirtualEvent_test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
+VirtualYear.o :
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(PRICING_DIR)/virtualYear.cpp
+
+VirtualYear_test.o : VirtualYear.o  $(USER_DIR)/VirtualEvent_test.cc $(GTEST_HEADERS) \
+	$(PRICING_DIR)/virtualYear.h
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $(USER_DIR)/VirtualYear_test.cc
+
+G_tests : $(SUB_TESTS) gtest_main.a
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
+
 

@@ -170,7 +170,7 @@ TEST_F(DefaultVirtualEventTests, Add_Fields) {
 class NoRGVirtualEventTests : public testing::Test{
 	protected:
 	virtual void SetUp() {
-		no_RG_event = VCAPS::VirtualEvent(1, 2.,1.);
+		no_RG_event = VCAPS::VirtualEvent(1, 2,1);
 	}
 	VCAPS::VirtualEvent no_RG_event;
 };
@@ -181,7 +181,7 @@ TEST_F(NoRGVirtualEventTests, Constructor_Fields) {
 	EXPECT_EQ(1, no_RG_event.get_lossNetOfReinstatePrem());
 	EXPECT_EQ(2, no_RG_event.get_lossNetOfFullRip());
 
-	no_RG_event = VCAPS::VirtualEvent(1, 7., 1.);
+	no_RG_event = VCAPS::VirtualEvent(1, 7, 1);
 	EXPECT_EQ(7, no_RG_event.loss);
 	EXPECT_EQ(1, no_RG_event.reinstatementPrem);
 	EXPECT_EQ(6, no_RG_event.get_lossNetOfReinstatePrem());

@@ -1,6 +1,6 @@
 #include <limits.h>
-#include "VirtualReality/VirtualYear.h"
-#include "VirtualReality/VirtualEvent.h"
+#include "virtualYear.h"
+#include "VirtualEvent.h"
 #include "gtest/gtest.h"
 #include <chrono>
 
@@ -387,8 +387,6 @@ TEST_F(VirtualYearMapTest, ensure_initial) {
 
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-	cout << duration<<endl;
-
 	for (int j = 0; j < 10; j++){
 		year_iE = year_map.find(j);
 		for (int i = 0; i < 10; i++){
@@ -403,7 +401,6 @@ TEST_F(VirtualYearMapTest, ensure_initial) {
 
 	duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-	cout << duration<<endl;
 }
 
 TEST_F(VirtualYearMapTest, copy_year_map) {
@@ -418,8 +415,6 @@ TEST_F(VirtualYearMapTest, copy_year_map) {
 
 	auto duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
 
-	cout << duration<<endl;
-
 	for (int j = 0; j < 10; j++){
 		year_iE = year_map_copy.find(j);
 		for (int i = 0; i < 10; i++){
@@ -433,6 +428,6 @@ TEST_F(VirtualYearMapTest, copy_year_map) {
 	t2 = high_resolution_clock::now();
 
 	duration = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1).count();
-	cout << duration <<endl;
 }
+
 
